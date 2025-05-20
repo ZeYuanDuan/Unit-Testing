@@ -18,10 +18,18 @@ it("should remain still if the input is number", () => {
   expect(result).toBe(input);
 });
 
-it("Should return NaN if the input is not transformable", () => {
+it("should return NaN if the input is not transformable", () => {
   const input = "invalid";
 
   const result = transformToNumber(input);
+
+  expect(result).toBeNaN();
+});
+
+it("should return NaN if input is an array", () => {
+  const inputArray = ["1", "2"];
+
+  const result = transformToNumber(inputArray);
 
   expect(result).toBeNaN();
 });
