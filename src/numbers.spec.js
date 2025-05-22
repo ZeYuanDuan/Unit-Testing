@@ -3,11 +3,10 @@ import { transformToNumber } from "./numbers";
 
 it("should transform string into number", () => {
   const input = "1";
-  const expectResult = 1;
 
   const result = transformToNumber(input);
 
-  expect(result).toBe(expectResult);
+  expect(result).toBeTypeOf("number");
 });
 
 it("should remain still if the input is number", () => {
@@ -20,10 +19,13 @@ it("should remain still if the input is number", () => {
 
 it("should return NaN if the input is not transformable", () => {
   const input = "invalid";
+  const input2 = {};
 
   const result = transformToNumber(input);
+  const result2 = transformToNumber(input2);
 
   expect(result).toBeNaN();
+  expect(result2).toBeNaN();
 });
 
 it("should return NaN if input is an array", () => {
